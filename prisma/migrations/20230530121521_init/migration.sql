@@ -1,0 +1,14 @@
+/*
+  Warnings:
+
+  - You are about to drop the `permissions` table. If the table is not empty, all the data it contains will be lost.
+
+*/
+-- DropForeignKey
+ALTER TABLE "permissions" DROP CONSTRAINT "permissions_role_id_fkey";
+
+-- AlterTable
+ALTER TABLE "roles" ADD COLUMN     "permissions" JSONB[];
+
+-- DropTable
+DROP TABLE "permissions";
